@@ -1,3 +1,5 @@
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
-EXPOSE 80
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY . .
+RUN javac FibonacciRecursive.java
+CMD ["java", "FibonacciRecursive"]
